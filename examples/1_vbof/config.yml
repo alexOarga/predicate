@@ -1,0 +1,12 @@
+settings:
+  variant_name: SARS-COV2
+
+reference_files:
+  fasta_sequences: covid.fasta
+  protein_sequences: prot_sequences.fasta
+
+metabolic_network:
+  model: ../recon1.xml
+  objective: biomass_mac
+
+

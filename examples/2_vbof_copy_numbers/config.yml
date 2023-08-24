@@ -1,0 +1,20 @@
+settings:
+  variant_name: SARS-COV2
+
+reference_files:
+  fasta_sequences: covid.fasta
+  protein_sequences: prot_sequences.fasta
+
+metabolic_network:
+  model: ../recon1.xml
+  objective: biomass_mac
+
+structural_proteins:
+  - { id: 'YP_009724390.1', copy_number: 120 }
+  - { id: 'YP_009724392.1', copy_number: 20 }
+  - { id: 'YP_009724393.1', copy_number: 456 }
+  - { id: 'YP_009724397.2', copy_number: 1000 }
+  
+other_copy_numbers:
+  Cnp: 1
+  Cg: 1
