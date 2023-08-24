@@ -1,12 +1,21 @@
 # Predicate
 
-[**Overview**](#overview)
-| [**Installation**](#installation)
-| [**Quickstart**](#quickstart)
-| [**Advanced settings**](#Advanced-settings)
-| [**License**](#license)
+- [**1. Overview**](#1-overview)
+- [**2. Installation**](#2-installation)
+- [**3. Quickstart**](#3-quickstart)
+  - [**3.1 Virus biomass calculation**](#31-virus-biomass-calculation)
+  - [**3.2 Virus biomass calculation with copy numbers**](#32-virus-biomass-calculation-with-copy-numbers)
+  - [**3.3 Host-derived enforcement**](#33-host-derived-enforcement)
+- [**4. Advanced settings**](#4-advanced-settings)
+  - [**4.1 Adapting metabolites IDs to your model**](#41-adapting-metabolites-ids-to-your-model)
+  - [**4.2 Adding additional metabolites to the virus biomass**](#42-adding-additional-metabolites-to-the-virus-biomass)
+  - [**4.3 Changing the grams of nucleotide per mole of virus**](#43-changing-the-grams-of-nucleotide-per-mole-of-virus)
+  - [**4.4 Number of APT and PPI molecules required**](#44-number-of-apt-and-ppi-molecules-required)
+  - [**4.5 Changing amino acids molecular weights**](#45-changing-amino-acids-molecular-weights)
+  - [**4.6 Mutations**](#46-mutations)
+- [**5. License**](#5-license)
 
-## Overview
+## 1. Overview
 
 Predicate is a command line version application of the PREDICtor of Antiviral TargEs (PREDICATE) application introduced in: [journal.pcbi.1010903](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1010903). 
 The origianl code can be found at: [pymCADRE repository](https://github.com/draeger-lab/pymCADRE). 
@@ -14,7 +23,7 @@ The main purpose of this application is to:
 - Calculate a virus biomass function and integrate it into an SBML metabolic network.
 - Target selection through reaction-knockout and host-derived enforcement.
 
-## Installation
+## 2. Installation
 
 Predicate depends on [pymCADRE](https://github.com/draeger-lab/pymCADRE),
 which requires a Python >= 3.8.5 version.
@@ -25,11 +34,11 @@ Predicate can be installed via **pip** package manager:
 pip install predicate
 ```
 
-## Quickstart
+## 3. Quickstart
 
-### Virus biomass calculation
+### 3.1 Virus biomass calculation
 
-[This example can be found at []]
+[This example can be found [here](https://github.com/alexOarga/predicate/tree/main/examples/1_vbof)]
 
 To calculate a virus biomass function, predicate requires a metabolic model in SBML format, a virus genome in FASTA format and the protein sequences in FASTA format.
 To run predicate you will need to create a `config.yml` file. The file should look as follows:
@@ -55,9 +64,9 @@ predicate config.yml
 
 This will generate a new SBML metabolic network with the virus biomass function integrated into the model. The id of this reactions will be `VBOF`.
 
-### Virus biomass calculation with copy numbers
+### 3.2 Virus biomass calculation with copy numbers
 
-[This example can be found at []]
+[This example can be found [here](https://github.com/alexOarga/predicate/tree/main/examples/2_vbof_copy_numbers)]
 
 The previous examples assumes that each proteins has a copy number of 1 which is generally not the case. To calculate the virus biomass function with copy numbers defined for each protein,
 first, create a `config.yml` file as follows:
@@ -96,9 +105,9 @@ predicate config.yml
 
 As before, this will generate a new SBML metabolic network with the virus biomass function integrated into the model. The id of this reactions will be `VBOF`.
 
-### Host-derived enforcement
+### 3.3 Host-derived enforcement
 
-[This example can be found at []]
+[This example can be found [here](https://github.com/alexOarga/predicate/tree/main/examples/3_hde)]
 
 To run host-derived enforcement on the generated virus biomass model, simply create a config file as before and add the following line: `run_hde: True` in the `settings` section:
 
@@ -110,11 +119,11 @@ settings:
 ...
 ```
 
-## Advanced settings
+## 4. Advanced settings
 
-[An example containing all the following sections can be found at []]
+[An example containing all the following sections can be found [here](https://github.com/alexOarga/predicate/tree/main/examples/4_full_config)]
 
-### Adapting metabolites IDs to your model
+### 4.1 Adapting metabolites IDs to your model
 
 Predicate uses by default metabolites identifiers given by the [BiGG database](http://bigg.ucsd.edu/). If your SBML model uses different identifiers, you need to manually specify the IDs of all aminoacids, nucleotides (ATP, CTP, GTP, UTP) and
 other energy requirements (ADP, H, H2O, PI, PPI). This can be done by adding the `metabolites_ids` section in the `metabolic_network` section of the `config.yml` file:
@@ -160,7 +169,7 @@ metabolic_network:
 
 For example, if ADP is represented in your model as `my_adp` you can change the following line: `- {'name': 'ADP', 'metabolite': 'adp_c'}` to `- {'name': 'ADP', 'metabolite': 'my_adp'}`.
 
-### Adding additional metabolites to the virus biomass
+### 4.2 Adding additional metabolites to the virus biomass
 
 If you want to add additional metabolites to the virus biomass function, you can do so by adding the `additional_metabolites` section in the `metabolic_network` section of the `config.yml` file:
 
@@ -179,7 +188,7 @@ metabolic_network:
 
 For example, the above example adds 6 more metabolites to the virus biomass function. :attention: A positive stoichiometry means that the metabolite is produced by the virus biomass function, while a negative stoichiometry means that the metabolite is consumed by the virus biomass function.
 
-### Changing the grams of nucleotide per mole of virus
+### 4.3 Changing the grams of nucleotide per mole of virus
 
 To change the number of grams of nucleotide per mole of virus, you can add the `nucleotides_per_virus_mol` section of the `config.yml` file:
 
@@ -194,7 +203,7 @@ nucleotides_per_virus_mol: {
 
 In the above example, the number of grams of nucleotide A per virus mole is 135.13, the number of grams of nucleotide U per virus mole is 112.09, the number of grams of nucleotide G per virus mole is 151.13 and the number of grams of nucleotide C per virus mole is 111.1.
 
-### Number of APT and PPI molecules required
+### 4.4 Number of APT and PPI molecules required
 
 To change the number of ATP molecules required for the polymerization of a nucleotide, or to change the number of molecules of PPI required to bond 2 nucleotides, you can add the `other_parameters` section of the `config.yml` file:
 
@@ -206,7 +215,7 @@ other_parameters:
 
 In the above example, 4 ATP molecules are required for the polymerization of a nucleotide and 1 PPI molecule is required to bond 2 nucleotides.
 
-### Changing amino acids molecular weights
+### 4.5 Changing amino acids molecular weights
 
 Although this might not be frequent, you can change the molecular weights of the amino acids by adding the `amino_acids_and_weights` section of the `config.yml` file:
 
@@ -236,11 +245,11 @@ amino_acids_and_weights:
 
 In the above example, the molecular weight of amino acid A is 89.1, the molecular weight of amino acid R is 174.2, etc.
 
-### Mutation
+### 4.6 Mutations
 
 Mutation visualization and analysis as in the original Predicate code is not
 implemented yet.
 
-## License
+## 5. License
 
 This code was directly taked from the [pymCADRE repository](https://github.com/draeger-lab/pymCADRE) and shares the same license. Please see the [LICENSE](LICENSE) file for details.
