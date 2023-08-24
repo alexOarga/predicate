@@ -31,7 +31,7 @@ which requires a Python >= 3.8.5 version.
 Predicate can be installed via **pip** package manager:
 
 ```bash
-pip install predicate
+pip install git+https://github.com/alexOarga/predicate
 ```
 
 ## 3. Quickstart
