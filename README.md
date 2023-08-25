@@ -186,7 +186,7 @@ metabolic_network:
     - {'metabolite': 'sphmyln_hs_c', 'stoichiometry': 0.001986}
 ```
 
-For example, the above example adds 6 more metabolites to the virus biomass function. :attention: A positive stoichiometry means that the metabolite is produced by the virus biomass function, while a negative stoichiometry means that the metabolite is consumed by the virus biomass function.
+For example, the above example adds 6 more metabolites to the virus biomass function. :warning: A positive stoichiometry means that the metabolite is produced by the virus biomass function, while a negative stoichiometry means that the metabolite is consumed by the virus biomass function.
 
 ### 4.3 Changing the grams of nucleotide per mole of virus
 
