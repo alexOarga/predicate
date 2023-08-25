@@ -38,7 +38,7 @@ pip install git+https://github.com/alexOarga/predicate
 
 ### 3.1 Virus biomass calculation
 
-[This example can be found [here](https://github.com/alexOarga/predicate/tree/main/examples/1_vbof)]
+:link: :arrow_right: [This example can be found [here](https://github.com/alexOarga/predicate/tree/main/examples/1_vbof)]
 
 To calculate a virus biomass function, predicate requires a metabolic model in SBML format, a virus genome in FASTA format and the protein sequences in FASTA format.
 To run predicate you will need to create a `config.yml` file. The file should look as follows:
@@ -66,7 +66,7 @@ This will generate a new SBML metabolic network with the virus biomass function 
 
 ### 3.2 Virus biomass calculation with copy numbers
 
-[This example can be found [here](https://github.com/alexOarga/predicate/tree/main/examples/2_vbof_copy_numbers)]
+:link: :arrow_right: [This example can be found [here](https://github.com/alexOarga/predicate/tree/main/examples/2_vbof_copy_numbers)]
 
 The previous examples assumes that each proteins has a copy number of 1 which is generally not the case. To calculate the virus biomass function with copy numbers defined for each protein,
 first, create a `config.yml` file as follows:
@@ -107,7 +107,7 @@ As before, this will generate a new SBML metabolic network with the virus biomas
 
 ### 3.3 Host-derived enforcement
 
-[This example can be found [here](https://github.com/alexOarga/predicate/tree/main/examples/3_hde)]
+:link: :arrow_right: [This example can be found [here](https://github.com/alexOarga/predicate/tree/main/examples/3_hde)]
 
 To run host-derived enforcement on the generated virus biomass model, simply create a config file as before and add the following line: `run_hde: True` in the `settings` section:
 
@@ -121,7 +121,7 @@ settings:
 
 ## 4. Advanced settings
 
-[An example containing all the following sections can be found [here](https://github.com/alexOarga/predicate/tree/main/examples/4_full_config)]
+:link: :arrow_right: [An example containing all the following sections can be found [here](https://github.com/alexOarga/predicate/tree/main/examples/4_full_config)]
 
 ### 4.1 Adapting metabolites IDs to your model
 
