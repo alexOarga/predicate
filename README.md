@@ -8,7 +8,7 @@
 
 ## Overview
 
-Predicate is a command line version application of the PREDICtor of Antiviral TargEs (PREDICATE) application introduced in: [journal.pcbi.1010903](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1010903). 
+Predicate is a command line version application of the PREDICtor of Antiviral TargEts (PREDICATE) application introduced in: [journal.pcbi.1010903](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1010903). 
 The origianl code can be found at: [pymCADRE repository](https://github.com/draeger-lab/pymCADRE). 
 The main purpose of this application is to:
 - Calculate a virus biomass function and integrate it into an SBML metabolic network.
