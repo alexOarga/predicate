@@ -721,6 +721,9 @@ def create_vbof_and_compute_hde(
             # Save model
             #######################################
             from cobra.io import load_json_model, save_json_model, load_matlab_model, save_matlab_model, read_sbml_model, write_sbml_model
+ 
+            # Set VBOF as objetive before saving the model
+            model.objective = 'VBOF'         
 
             name = f"Seq_{count_iterations}_Id_{ids}_Var_{variant_name}_VBOF.xml"
             file = os.path.join(os.getcwd(), name)
