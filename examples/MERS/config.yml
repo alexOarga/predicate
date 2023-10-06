@@ -1,0 +1,104 @@
+settings:
+  run_hde: False
+  variant_name: MERS
+
+mutated_files:
+  fasta_sequences: ''
+  gisaid_csv_table: ''
+
+reference_files:
+  fasta_sequences: KT006149.2.fasta
+  protein_sequences: uniprotkb_proteome_UP000144472_2023_10_04.fasta
+
+metabolic_network:
+  model: ./iHsaEC21.xml
+  objective: URIK1 # any objective reaction
+  metabolites_ids: 
+     #energy requirements
+    - {'name': 'ADP', 'metabolite': 'adp_c'}
+    - {'name': 'H_atom', 'metabolite': 'h_c'}
+    - {'name': 'H2O', 'metabolite': 'WATER_c'}
+    - {'name': 'PI', 'metabolite': 'pi_c'}
+    - {'name': 'PPI', 'metabolite': 'ppi_c'}
+    #nucleotides: left-hand terms 
+    - {'name': 'ATP', 'metabolite': 'atp_c'}
+    - {'name': 'CTP', 'metabolite': 'ctp_c'}
+    - {'name': 'GTP', 'metabolite': 'gtp_c'}
+    - {'name': 'UTP', 'metabolite': 'utp_c'}
+    #amino acids: left-hand terms
+    - {'name': 'A', 'metabolite': 'L_45_ALPHA_45_ALANINE_c'}
+    - {'name': 'R', 'metabolite': 'arg_DASH_DASH_DASH_L_c'}
+    - {'name': 'N', 'metabolite': 'ASN_c'}
+    - {'name': 'D', 'metabolite': 'asp_DASH_DASH_DASH_L_c'}
+    - {'name': 'C', 'metabolite': 'CYS_c'}
+    - {'name': 'E', 'metabolite': 'Glutamates_c'}
+    - {'name': 'Q', 'metabolite': 'GLN_c'}
+    - {'name': 'G', 'metabolite': 'GLY_c'}
+    - {'name': 'H', 'metabolite': 'HIS_c'}
+    - {'name': 'I', 'metabolite': 'ILE_c'}
+    - {'name': 'L', 'metabolite': 'LEU_c'}
+    - {'name': 'K', 'metabolite': 'lys_DASH_DASH_DASH_L_c'}
+    - {'name': 'M', 'metabolite': 'MET_c'}
+    - {'name': 'F', 'metabolite': 'PHE_c'}
+    - {'name': 'P', 'metabolite': 'PRO_c'}
+    - {'name': 'S', 'metabolite': 'SER_c'}
+    - {'name': 'T', 'metabolite': 'THR_c'}
+    - {'name': 'W', 'metabolite': 'TRP_c'}
+    - {'name': 'Y', 'metabolite': 'TYR_c'}
+    - {'name': 'V', 'metabolite': 'VAL_c'}
+  
+  additional_metabolites:
+    # lipids
+    - {'metabolite': 'pchol_DASH_hs_c', 'stoichiometry': 0.038400}    # Phosphatidylcholine
+    - {'metabolite': 'pe_DASH_hs_c', 'stoichiometry': 0.014566}       # Phosphatidylethanolamine
+    - {'metabolite': 'pail_DASH_hs_c', 'stoichiometry': 0.006621}     # Phosphatidylinositol
+    - {'metabolite': 'ps_DASH_hs_c', 'stoichiometry': 0.001986}       # Phosphatidylserine
+    - {'metabolite': 'CHOLESTEROL_c', 'stoichiometry': 0.000012}    # Cholesterol
+    - {'metabolite': 'sphmyln_DASH_hs_c', 'stoichiometry': 0.001986}  # Sphingomyelin
+
+
+structural_proteins:
+  - { id: 'tr|W6A028|W6A028_MERS', copy_number: 120 }  # spike
+  - { id: 'tr|R9UQN1|R9UQN1_MERS', copy_number: 20 }   # envelope
+  - { id: 'tr|A0A0G3VL55|A0A0G3VL55_MERS', copy_number: 456 }  # membrane
+  - { id: 'tr|R9UM87|R9UM87_MERS', copy_number: 1000 } # nucleocapsid
+
+other_copy_numbers:
+  Cnp: 1
+  Cg: 1
+
+other_parameters:
+  kATP: 4
+  kPPi: 1
+
+amino_acids_and_weights:
+  - { amino_acid: 'A', molecular_weight: 89.1 }
+  - { amino_acid: 'R', molecular_weight: 174.2 }
+  - { amino_acid: 'N', molecular_weight: 132.1 }
+  - { amino_acid: 'D', molecular_weight: 133.1 }
+  - { amino_acid: 'C', molecular_weight: 121.2 }
+  - { amino_acid: 'E', molecular_weight: 147.1 }
+  - { amino_acid: 'Q', molecular_weight: 146.2 }
+  - { amino_acid: 'G', molecular_weight: 75.1 }
+  - { amino_acid: 'H', molecular_weight: 155.2 }
+  - { amino_acid: 'I', molecular_weight: 131.2 }
+  - { amino_acid: 'L', molecular_weight: 131.2 }
+  - { amino_acid: 'K', molecular_weight: 146.2 }
+  - { amino_acid: 'M', molecular_weight: 149.2 }
+  - { amino_acid: 'F', molecular_weight: 165.2 }
+  - { amino_acid: 'P', molecular_weight: 115.1 }
+  - { amino_acid: 'S', molecular_weight: 105.1 }
+  - { amino_acid: 'T', molecular_weight: 119.1 }
+  - { amino_acid: 'W', molecular_weight: 204.2 }
+  - { amino_acid: 'Y', molecular_weight: 181.2 }
+  - { amino_acid: 'V', molecular_weight: 117.1 }
+  
+## grams of nucleotide per mole of virus  
+nucleotides_per_virus_mol: {
+  A: 135.13,
+  U: 112.09,
+  G: 151.13,
+  C: 111.1
+}
+
+
